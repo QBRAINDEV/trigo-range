@@ -28,7 +28,7 @@ const moveCursor = (e) => {
 
   let xmp = Math.floor(
     d / 2 +
-      d * ((xm - x0) / Math.sqrt(Math.pow(xm - x0, 2) + Math.pow(ym - y0, 2)))
+      d * ((x0 - xm) / Math.sqrt(Math.pow(xm - x0, 2) + Math.pow(ym - y0, 2)))
   );
 
   let ymp = Math.floor(
