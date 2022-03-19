@@ -23,20 +23,16 @@ const moveCursor = (e) => {
   let d = coords.area.r;
   let xm = e.pageX;
   let ym = e.pageY;
+  let x0 = coords.range.x;
+  let y0 = coords.range.y;
 
   let xmp =
-    d *
-    ((xm - coords.range.x) /
-      Math.sqrt(
-        Math.pow(xm - coords.range.x, 2) + Math.pow(ym - coords.range.y, 2)
-      ));
+    d / 2 +
+    d * ((xm - x0) / Math.sqrt(Math.pow(xm - x0, 2) + Math.pow(ym - y0, 2)));
 
   let ymp =
-    d *
-    ((ym - coords.range.y) /
-      Math.sqrt(
-        Math.pow(xm - coords.range.x, 2) + Math.pow(ym - coords.range.y, 2)
-      ));
+    d / 2 +
+    d * ((ym - y0) / Math.sqrt(Math.pow(xm - x0, 2) + Math.pow(ym - y0, 2)));
   console.log(xmp, ymp);
   $(`.cursor`).style.left = `${xmp}px`;
   $(`.cursor`).style.top = `${ymp}px`;
