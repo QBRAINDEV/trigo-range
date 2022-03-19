@@ -26,16 +26,18 @@ const moveCursor = (e) => {
   let x0 = coords.range.x;
   let y0 = coords.range.y;
 
-  let xmp =
+  let xmp = Math.floor(
     d / 2 +
-    d * ((xm - x0) / Math.sqrt(Math.pow(xm - x0, 2) + Math.pow(ym - y0, 2)));
+      d * ((xm - x0) / Math.sqrt(Math.pow(xm - x0, 2) + Math.pow(ym - y0, 2)))
+  );
 
-  let ymp =
+  let ymp = Math.floor(
     d / 2 +
-    d * ((ym - y0) / Math.sqrt(Math.pow(xm - x0, 2) + Math.pow(ym - y0, 2)));
+      d * ((ym - y0) / Math.sqrt(Math.pow(xm - x0, 2) + Math.pow(ym - y0, 2)))
+  );
   console.log(xmp, ymp);
-  $(`.cursor`).style.left = `${xmp}px`;
-  $(`.cursor`).style.top = `${ymp}px`;
+  $(`.cursor`).style.left = `${xmp + 30}px`;
+  $(`.cursor`).style.top = `${ymp + 30}px`;
 };
 
 document.addEventListener(`mousemove`, moveCursor);
